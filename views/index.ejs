@@ -16,6 +16,17 @@
     <main>
         <h1>Welcome to Doctor Who Website</h1>
         <h2>Here, you will be able to search for characters, species and locations</h2>
+        <h3>Have a look at some of the most beloved characters:</h3>
+        <div>
+            <% characters.forEach(character => { %>
+                <div style="border: 1px solid black; margin-bottom: 10px; padding: 10px;">
+                    <h2><%= character.name %></h2>
+                    <p>Species: <%= character.species.name %></p>
+                    <p>Status: <%= character.status %></p>
+                    <img src="<%= character.image %>" alt="<%= character.name %>" style="max-width: 200px;">
+                </div>
+            <% }) %>
+        </div>
     </main>
 </body>
 </html>
