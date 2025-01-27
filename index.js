@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
 
 app.get("/", async (req, res) => {
     try {
-        const characterIds = [10, 11, 12, 13, 17, 24, 20, 21, 22]
+        const characterIds = [10, 11, 12, 13, 17, 24, 20, 21, 22, 30, 34, 41]
         const responses = await Promise.all(
             characterIds.map((id) => axios.get(`${base}/character/${id}`))
         );
