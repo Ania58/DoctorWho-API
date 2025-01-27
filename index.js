@@ -17,6 +17,16 @@ app.get("/", async (req, res) => {
         );
         const specificCharacters =  responses.map((response) => response.data);
         console.log(specificCharacters);
+
+        specificCharacters.forEach((character) => {
+            console.log(`Character: ${character.name}, Image: ${character.image}`);
+        });
+
+        specificCharacters.forEach((character) => {
+            if (character.image.includes("scale-to-width-down")) {
+                character.image = character.image.split("/revision")[0];
+            }
+        });
         
         res.render("index.ejs", { characters: specificCharacters });
     } catch (error) {
