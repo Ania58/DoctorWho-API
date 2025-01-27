@@ -33,10 +33,35 @@ app.get("/", async (req, res) => {
         console.error("Error fetching characters:", error.message);
         res.status(500).send("An error occurred while fetching characters.");
     }
-   
 })
 
+app.get("/characters", async (req, res) => {
+    const { name } = req.query;
+    if (!name) {
+        return res.render("characters.ejs", { characters: [] , searchPerformed: false}); 
+    }
 
+    try {
+        const response = await axios.get(`${base}/character`);
+        const characters = response.data;
+
+        const filteredCharacters = characters.filter((character) =>
+            character.name.toLowerCase().includes(name.toLowerCase())
+        );
+
+        filteredCharacters.forEach((character) => {
+            if (character.image.includes("scale-to-width-down")) {
+                character.image = character.image.split("/revision")[0];
+            }
+        });
+
+        res.render("characters.ejs", { characters: filteredCharacters , searchPerformed: true});  
+    } catch (error) {
+        console.error("Error fetching characters:", error.message);
+        res.status(500).send("An error occurred while fetching characters.");
+    }
+    
+})
 
 
 

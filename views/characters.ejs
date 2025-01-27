@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Characters</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/search-species">Search Species</a>
+            <a href="/search-locations">Search Locations</a>
+        </nav>
+    </header>
+    <main>
+        <form method="GET" action="/characters">
+            <label for="name">Character's Name: </label>
+            <input id="name" name="name"/>
+            <button>Search</button>
+        </form>
+        <h1>Search Results</h1>
+    <div>
+        <% if (!searchPerformed) { %>
+            <p>Enter a name above to search for characters.</p>
+        <% } else if (characters.length > 0) { %>
+            <% characters.forEach(character => { %>
+                <div>
+                    <h2><%= character.name %></h2>
+                    <p>Species: <%= character.species.name %></p>
+                    <p>Status: <%= character.status %></p>
+                    <p>Description: <%= character.description %></p>
+                    <p>Place of Origin: <%= character.placeOfOrigin.name %></p>
+                    <p>Relationship with the Doctor: <%= character.relationsWithTheDoctor %></p>
+                    <p>Actors: <%= character.actors %></p>
+                    <img src="<%= character.image %>" alt="<%= character.name %>" style="max-width: 200px;">
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No characters found. Please try another name.</p>
+        <% } %>
+    </div>
+    </main>
+</body>
+</html>
