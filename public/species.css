@@ -205,3 +205,37 @@ main div img:hover {
 	transform: scale(1.1);
 	box-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
 }
+
+@media screen and (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    header nav a {
+        font-size: 1rem;
+    }
+    main div > div {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+    header nav a {
+        font-size: 0.9rem;
+    }
+    main h1 {
+        font-size: 2rem;
+    }
+    main h2, main h3 {
+        font-size: 1.3rem;
+    }
+    main div > div {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
