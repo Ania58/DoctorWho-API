@@ -1,0 +1,207 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+	line-height: 1;
+	font-family: 'Trebuchet MS', sans-serif;
+	color: #ffffff;
+	background: radial-gradient(circle at 50% 50%, #1b2735, #090a0f);
+	overflow-x: hidden;
+}
+
+header {
+	background: linear-gradient(90deg, #1a73e8, #9c27b0);
+	padding: 15px;
+	text-align: center;
+	border-bottom: 2px solid #ffffff;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+header nav {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+
+header nav a {
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	transition: color 0.3s, transform 0.3s;
+}
+
+header nav a:hover {
+	color: #ffd700;
+	transform: scale(1.2);
+}
+
+main {
+	padding: 20px;
+	text-align: center;
+}
+
+main h1 {
+	font-size: 2.5rem;
+	text-shadow: 0px 0px 10px #1a73e8, 0px 0px 20px #9c27b0;
+	margin-bottom: 20px;
+}
+
+main h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #80d8ff; 
+}
+
+main p {
+	font-size: 1.2rem;
+	color: #ff9800;
+	margin: 20px;
+}
+
+form {
+	margin: 20px auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid #ffffff;
+	border-radius: 10px;
+	padding: 20px;
+	width: 80%;
+	max-width: 400px;
+	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+form label {
+	font-size: 1.2rem;
+	color: #80d8ff;
+	margin-bottom: 10px;
+}
+
+form input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #ffffff;
+	border-radius: 5px;
+	background: rgba(255, 255, 255, 0.2);
+	color: #ffffff;
+	font-size: 1rem;
+}
+
+form input::placeholder {
+	color: #80d8ff;
+}
+
+form button {
+	padding: 10px 20px;
+	font-size: 1rem;
+	color: #ffffff;
+	background: linear-gradient(90deg, #1a73e8, #9c27b0);
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: transform 0.3s, box-shadow 0.3s;
+}
+
+form button:hover {
+	transform: scale(1.1);
+	box-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+}
+
+main div {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px;
+}
+
+main div > div {
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid #ffffff;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+	padding: 20px;
+	width: 300px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	transition: transform 0.3s, box-shadow 0.3s;
+}
+
+main div > div:hover {
+	transform: scale(1.05);
+	box-shadow: 0px 0px 20px rgba(255, 255, 255, 1);
+}
+
+main div h2 {
+	font-size: 1.5rem;
+	color: #ffd700;
+	margin: 10px 0;
+}
+
+main div p {
+	margin: 5px 0;
+	font-size: 1.1rem;
+	color: #80d8ff;
+}
+
+main div img {
+	border-radius: 8px;
+	width: 100%;
+	height: 250px;
+	object-fit: cover;
+	object-position: top;
+	transition: transform 0.3s, box-shadow 0.3s;
+	margin-top: 10px;
+}
+
+main div img:hover {
+	transform: scale(1.1);
+	box-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+}
