@@ -50,7 +50,9 @@ app.get("/characters", async (req, res) => {
         );
 
         filteredCharacters.forEach((character) => {
-            if (character.image.includes("scale-to-width-down")) {
+            if (character.name === "Fourteenth Doctor") {
+                character.image = "/images/Fourteenth_Doctor_in_Wild_Blue_Yonder.png"; 
+            } else if (character.image.includes("scale-to-width-down")) {
                 character.image = character.image.split("/revision")[0];
             }
         });
