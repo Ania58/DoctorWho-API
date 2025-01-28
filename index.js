@@ -81,7 +81,10 @@ app.get("/species", async (req, res) => {
             if (s.image.includes("scale-to-width-down")) {
                 s.image = s.image.split("/revision")[0];
             }
+
+            s.placeOfOrigin = s.placeOfOrigin || s.planetOfOrigin || { name: "Unknown" };
         });
+
 
         res.render("species.ejs", { species: filteredSpecies , searchPerformed: true});  
     } catch (error) {

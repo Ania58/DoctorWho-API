@@ -30,7 +30,7 @@
                 <div>
                     <h2><%= s.name %></h2>
                     <p>Description: <%= s.description %></p>
-                    <p>Place of Origin: <%= s.placeOfOrigin.name %></p>
+                    <p>Place of Origin: <%= s.placeOfOrigin?.name|| "Unknown" %></p>
                     <img src="<%= s.image %>" alt="<%= s.name %>" style="max-width: 200px;">
                 </div>
             <% }) %>
