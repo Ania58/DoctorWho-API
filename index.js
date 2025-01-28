@@ -94,6 +94,34 @@ app.get("/species", async (req, res) => {
     
 })
 
+app.get("/locations", async (req, res) => {
+    const { name } = req.query;
+    if (!name) {
+        return res.render("locations.ejs", { locations: [] , searchPerformed: false}); 
+    }
+
+    try {
+        const response = await axios.get(`${base}/location`);
+        const locations = response.data;
+
+        const filteredLocations = locations.filter((location) =>
+            location.name.toLowerCase().includes(name.toLowerCase())
+        );
+
+        filteredLocations.forEach((location) => {
+            if (location.image.includes("scale-to-width-down")) {
+                location.image = location.image.split("/revision")[0];
+            }
+        });
+
+
+        res.render("locations.ejs", { locations: filteredLocations , searchPerformed: true});  
+    } catch (error) {
+        console.error("Error fetching locations:", error.message);
+        res.status(500).send("An error occurred while fetching locations.");
+    }
+    
+})
 
 
 

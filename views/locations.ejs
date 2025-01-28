@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/locations.css">
+    <title>Locations</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/characters">Search Characters</a>
+            <a href="/species">Search Species</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Try out some locations like Earth, Gallifrey, Skaro, London, Pompeii, Black Archieve, National Gallery, Barn, etc.</h2>
+        <form method="GET" action="/locations">
+            <label for="name">Location's Name: </label>
+            <input id="name" name="name"/>
+            <button>Search</button>
+        </form>
+        <h1>Search Results</h1>
+    <div>
+        <% if (!searchPerformed) { %>
+            <p>Enter a name above to search for locations.</p>
+        <% } else if (locations.length > 0) { %>
+            <% locations.forEach(location => { %>
+                <div>
+                    <h2><%= location.name %></h2>
+                    <p>Type: <%= location.type %></p>
+                    <p>Description: <%= location.description %></p>
+                    <img src="<%= location?.image || "Unknown" %>" alt="<%= location.name %>" style="max-width: 200px;">
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No locations found. Please try another name.</p>
+        <% } %>
+    </div>
+    </main>
+</body>
+</html>
