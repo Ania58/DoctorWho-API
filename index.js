@@ -54,6 +54,10 @@ app.get("/characters", async (req, res) => {
                 character.image = "/images/Fourteenth_Doctor_in_Wild_Blue_Yonder.png"; 
             } else if (character.image.includes("scale-to-width-down")) {
                 character.image = character.image.split("/revision")[0];
+            } else if (character.image.includes("/revision/latest")) {
+                character.image = character.image.split("/revision")[0]; 
+            } else if (!character.image || character.image.trim() === "") {
+                character.image = "/images/default-character.png";  
             }
         });
 
