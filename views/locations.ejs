@@ -31,7 +31,9 @@
                     <h2><%= location.name %></h2>
                     <p>Type: <%= location.type %></p>
                     <p>Description: <%= location.description %></p>
-                    <img src="<%= location?.image || "Unknown" %>" alt="<%= location.name %>" style="max-width: 200px;">
+                    <% if (location.image && location.image.trim() !== '') { %>
+                        <img src="<%= location.image %>" alt="<%= location.name %>" style="max-width: 200px;">
+                    <% } %>
                 </div>
             <% }) %>
         <% } else { %>
