@@ -63,6 +63,33 @@ app.get("/characters", async (req, res) => {
     
 })
 
+app.get("/species", async (req, res) => {
+    const { name } = req.query;
+    if (!name) {
+        return res.render("species.ejs", { species: [] , searchPerformed: false}); 
+    }
+
+    try {
+        const response = await axios.get(`${base}/species`);
+        const species = response.data;
+
+        const filteredSpecies = species.filter((s) =>
+            s.name.toLowerCase().includes(name.toLowerCase())
+        );
+
+        filteredSpecies.forEach((s) => {
+            if (s.image.includes("scale-to-width-down")) {
+                s.image = s.image.split("/revision")[0];
+            }
+        });
+
+        res.render("species.ejs", { species: filteredSpecies , searchPerformed: true});  
+    } catch (error) {
+        console.error("Error fetching species:", error.message);
+        res.status(500).send("An error occurred while fetching species.");
+    }
+    
+})
 
 
 

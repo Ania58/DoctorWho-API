@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Species</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/characters">Search Characters</a>
+            <a href="/locations">Search Locations</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Try out some species like Dalek, Cyberman, Time Lord, Human, Silurian, Sontarian, etc.</h1>
+        <form method="GET" action="/species">
+            <label for="name">Species' Name: </label>
+            <input id="name" name="name"/>
+            <button>Search</button>
+        </form>
+        <h2>Search Results</h2>
+    <div>
+        <% if (!searchPerformed) { %>
+            <p>Enter a name above to search for species.</p>
+        <% } else if (species.length > 0) { %>
+            <% species.forEach(s => { %>
+                <div>
+                    <h2><%= s.name %></h2>
+                    <p>Description: <%= s.description %></p>
+                    <p>Place of Origin: <%= s.placeOfOrigin.name %></p>
+                    <img src="<%= s.image %>" alt="<%= s.name %>" style="max-width: 200px;">
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No species found. Please try another name.</p>
+        <% } %>
+    </div>
+    </main>
+</body>
+</html>
