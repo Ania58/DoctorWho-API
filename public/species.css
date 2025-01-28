@@ -89,6 +89,12 @@ main h1 {
 	margin-bottom: 20px;
 }
 
+main h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #80d8ff; 
+}
+
 main p {
 	font-size: 1.2rem;
 	color: #ff9800;
