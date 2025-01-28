@@ -130,9 +130,43 @@ app.get("/locations", async (req, res) => {
 })
 
 
+app.get("/characters/categorized", async (req, res) => {
 
+    try {
+        const response = await axios.get(`${base}/character`);
+        const characters = response.data;
 
+        characters.forEach((character) => {
+            if (character.name === "Fourteenth Doctor") {
+                character.image = "/images/Fourteenth_Doctor_in_Wild_Blue_Yonder.png"; 
+            } else if (character.image.includes("scale-to-width-down")) {
+                character.image = character.image.split("/revision")[0];
+            } else if (character.image.includes("/revision/latest")) {
+                character.image = character.image.split("/revision")[0]; 
+            } else if (!character.image || character.image.trim() === "") {
+                character.image = "/images/default-character.png";  
+            }
+        });
 
+        const femaleCompanions = characters.filter(c => c.relationsWithTheDoctor === "Companion" && c.gender === "Female");
+        const maleCompanions = characters.filter(c => c.relationsWithTheDoctor === "Companion" && c.gender === "Male");
+        const friends = characters.filter(c => c.relationsWithTheDoctor === "Friend");
+        const foes = characters.filter(c => c.relationsWithTheDoctor === "Foe");
+        const theDoctor = characters.filter(c => c.relationsWithTheDoctor === "Self");
+
+        res.render("categorizedCharacters.ejs", { 
+            femaleCompanions, 
+            maleCompanions, 
+            friends, 
+            foes, 
+            theDoctor
+        });  
+    } catch (error) {
+        console.error("Error fetching characters:", error.message);
+        res.status(500).send("An error occurred while fetching characters.");
+    }
+    
+})
 
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);    

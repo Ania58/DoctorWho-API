@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorized Characters</title>
+    <link rel="stylesheet" href="/categorizedCharacters.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/characters">Search Characters</a>
+            <a href="/species">Search Species</a>
+            <a href="/locations">Search Locations</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Doctor Who Characters</h1>
+
+        <% if (theDoctor.length > 0) { %>
+            <h2>The Doctor</h2>
+            <div class="character-container">
+                <% theDoctor.forEach(character => { %>
+                    <div class="character-card">
+                        <h3><%= character.name %></h3>
+                        <img src="<%= character.image %>" alt="<%= character.name %>">
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+
+        <% if (femaleCompanions.length > 0) { %>
+            <h2>Female Companions</h2>
+            <div class="character-container">
+                <% femaleCompanions.forEach(character => { %>
+                    <div class="character-card">
+                        <h3><%= character.name %></h3>
+                        <img src="<%= character.image %>" alt="<%= character.name %>">
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+
+        <% if (maleCompanions.length > 0) { %>
+            <h2>Male Companions</h2>
+            <div class="character-container">
+                <% maleCompanions.forEach(character => { %>
+                    <div class="character-card">
+                        <h3><%= character.name %></h3>
+                        <img src="<%= character.image %>" alt="<%= character.name %>">
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+
+        <% if (friends.length > 0) { %>
+            <h2>Friends</h2>
+            <div class="character-container">
+                <% friends.forEach(character => { %>
+                    <div class="character-card">
+                        <h3><%= character.name %></h3>
+                        <img src="<%= character.image %>" alt="<%= character.name %>">
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+
+        <% if (foes.length > 0) { %>
+            <h2>Foes</h2>
+            <div class="character-container">
+                <% foes.forEach(character => { %>
+                    <div class="character-card">
+                        <h3><%= character.name %></h3>
+                        <img src="<%= character.image %>" alt="<%= character.name %>">
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </main>
+</body>
+</html>
